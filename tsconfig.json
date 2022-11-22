@@ -8,6 +8,7 @@
     "downlevelIteration": true,
     "importHelpers": true,
     "noImplicitThis": false,
+    "skipLibCheck": true,
     "lib": [
       "dom",
       "es5",
