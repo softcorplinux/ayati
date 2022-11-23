@@ -15,8 +15,7 @@ class Mazu {
   install(capture: string | RegExp, strategy: StrategySubscriptionType): Mazu;
   install(capture: string | RegExp, strategy: StrategySubscriptionType, event?: FuncEventType): Mazu;
   install(capture: string | RegExp, strategy: StrategySubscriptionType, event?: FuncEventType): Mazu {
-    const install = new Install();
-    this._observable.subscribe({ capture, strategy, event });
+    this._observable.subscribe(new Install(capture, strategy, event));
     return this;
   }
 }
