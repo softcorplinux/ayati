@@ -10,7 +10,7 @@ export { default as CacheFirst } from './core/strategies/CacheFirst';
 // types
 export * from './core/types/common';
 export * from './core/types/plugin';
-export * from './core/types/strategie';
+export * from './core/types/strategy';
 
 // import ExpirationPlugin from './core/plugins/ExpirationPlugin';
 // // import CacheFirst from './core/strategies/CacheFirst';
