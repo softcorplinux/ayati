@@ -1,14 +1,20 @@
 import EventListener from './EventListener';
 
 class Mazu {
-  public observers: EventListener[] = [];
+  private _observers: EventListener[] = [];
 
-  subscribe(f: EventListener) {
-    this.observers.push(f);
+  public subscribe(f: EventListener) {
+    this._observers.push(f);
+    return this;
   }
 
-  unsubscribe(f: EventListener) {
-    this.observers = this.observers.filter((subscriber) => subscriber !== f);
+  public unsubscribe(f: EventListener) {
+    this._observers = this._observers.filter((subscriber) => subscriber !== f);
+    return this;
+  }
+
+  public subscription(): void {
+    console.log('_observers', this._observers);
   }
 }
 
