@@ -1,23 +1,15 @@
-import Observable from './Observable';
-// events
-import Install from './events/Install';
-// types
-import { StrategySubscriptionType } from './types/strategy';
-import { FuncEventType } from './types/common';
+import EventListener from './EventListener';
 
 class Mazu {
-  private _observable = new Observable<Install>();
+  public observers: EventListener[] = [];
 
-  constructor() {
-    // this.observers = [];
+  subscribe(f: EventListener) {
+    this.observers.push(f);
   }
 
-  install(capture: string | RegExp, strategy: StrategySubscriptionType): Mazu;
-  install(capture: string | RegExp, strategy: StrategySubscriptionType, event?: FuncEventType): Mazu;
-  install(capture: string | RegExp, strategy: StrategySubscriptionType, event?: FuncEventType): Mazu {
-    this._observable.subscribe(new Install(capture, strategy, event));
-    return this;
+  unsubscribe(f: EventListener) {
+    this.observers = this.observers.filter((subscriber) => subscriber !== f);
   }
 }
 
-export default Mazu;
+export default new Mazu();

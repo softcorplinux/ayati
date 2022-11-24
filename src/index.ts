@@ -1,16 +1,20 @@
 /// <reference lib="webworker" />
 
-export { default as Observable } from './core/Observable';
-// events
-export { default as Install } from './core/events/Install';
-// plugins
-export { default as ExpirationPlugin } from './core/plugins/ExpirationPlugin';
-// strategies
-export { default as CacheFirst } from './core/strategies/CacheFirst';
-// types
-export * from './core/types/common';
-export * from './core/types/plugin';
-export * from './core/types/strategy';
+import Mazu from './core/Mazu';
+
+export default Mazu;
+
+// export { default as Observable } from './core/Observable';
+// // events
+// export { default as Install } from './core/events/Install';
+// // plugins
+// export { default as ExpirationPlugin } from './core/plugins/ExpirationPlugin';
+// // strategies
+// export { default as CacheFirst } from './core/strategies/CacheFirst';
+// // types
+// export * from './core/types/common';
+// export * from './core/types/plugin';
+// export * from './core/types/strategy';
 
 // import ExpirationPlugin from './core/plugins/ExpirationPlugin';
 // // import CacheFirst from './core/strategies/CacheFirst';
