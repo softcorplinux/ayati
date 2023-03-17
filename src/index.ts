@@ -1,5 +1,6 @@
 /// <reference lib="webworker" />
 
-import Mazu from './core/Mazu';
-
-export default Mazu;
+export { default as Mazu } from './Mazu';
+export { default as EventListener } from './EventListener';
+export { default as Listener } from './Listener';
+export { default as Strategy } from './Strategy';

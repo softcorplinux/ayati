@@ -10,7 +10,7 @@ class EventListener {
   }
 }
 
-type ListenerType = {
+export type ListenerType = {
   (listener: Listener): void;
 };
 
