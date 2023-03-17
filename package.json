@@ -1,7 +1,7 @@
 {
-  "name": "mazu",
+  "name": "ayati",
   "version": "1.0.0",
-  "description": "Mazu",
+  "description": "Ayati",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
