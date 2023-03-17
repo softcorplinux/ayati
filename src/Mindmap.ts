@@ -3,10 +3,15 @@ export default class Mindmap {
   private _svg: Element = document.createElementNS(this._xmlns, 'svg');
   private _dataSource: IDatasource[];
   private _el: HTMLElement;
+  private _coordinates: string[] = [];
 
   constructor(dataSource: IDatasource[], el: HTMLElement) {
     this._el = el;
     this._dataSource = dataSource;
+  }
+
+  private _pushToCoordinates(w: number, h: number) {
+    this._coordinates.push(`${w}:${h}`);
   }
 
   private _drawCircle(w: number, h: number) {
@@ -27,8 +32,15 @@ export default class Mindmap {
     let index = length;
 
     while (index--) {
-      const w = width + 100;
-      const h = height - 50 * index + ((length - 1) * 50) / 2;
+      let w = dataSource[index].x ?? width + 100;
+      let h = dataSource[index].y ?? height - 50 * index + ((length - 1) * 50) / 2;
+
+      if (this._coordinates.find((i) => i === `${w}:${h}`)) {
+        w = dataSource[index].x ?? w + Math.floor(Math.random() * 100);
+        h = dataSource[index].y ?? h + Math.floor(Math.random() * 100);
+      }
+
+      this._pushToCoordinates(w, h);
       this._drawCircle(w, h);
 
       if (dataSource[index]?.children.length) {
@@ -46,13 +58,17 @@ export default class Mindmap {
 
     let index = length;
     while (index--) {
-      const w = width / 2;
-      const h = (height / (length + 1)) * (index + 1);
+      const w = this._dataSource[index].x ?? width / 2;
+      const h = this._dataSource[index].y ?? (height / (length + 1)) * (index + 1);
+      this._pushToCoordinates(w, h);
       this._drawCircle(w, h);
+
       if (this._dataSource[index]?.children.length) {
         this._draw(this._dataSource[index].children, w, h);
       }
     }
+
+    console.log(this._coordinates);
 
     this._el.appendChild(this._svg);
   }
@@ -62,4 +78,6 @@ interface IDatasource {
   id: number;
   title: string;
   children: IDatasource[];
+  x?: number;
+  y?: number;
 }
