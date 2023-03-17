@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/softcorplinux/mazu.git"
+    "url": "git+https://github.com/softcorplinux/ayati.git"
   },
   "keywords": [
     "Giganto",
@@ -26,9 +26,9 @@
   "author": "Isaikin Victor",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/softcorplinux/mazu/issues"
+    "url": "https://github.com/softcorplinux/ayati/issues"
   },
-  "homepage": "https://github.com/softcorplinux/mazu#readme",
+  "homepage": "https://github.com/softcorplinux/ayati#readme",
   "files": [
     "build/**/*"
   ],
