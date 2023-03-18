@@ -1,20 +1,7 @@
-import CoreObject from './CoreObject';
+import CoreChildren from './CoreChildren';
 
-export default class G extends CoreObject {
-  private _children: Set<CoreObject> = new Set();
-
+export default class G extends CoreChildren {
   constructor() {
     super('g');
-  }
-
-  public append(element: CoreObject) {
-    this._children.add(element);
-  }
-
-  public draw() {
-    this._children.forEach((element) => {
-      this.element.appendChild(element.draw());
-    });
-    return this.element;
   }
 }
